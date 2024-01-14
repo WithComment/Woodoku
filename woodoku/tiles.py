@@ -7,9 +7,9 @@ def int8_array(*args, **kwargs) -> np.ndarray:
   return np.asarray(*args, dtype=np.int8, **kwargs)
 
 
-def print_shape(shape: np.ndarray) -> None:
+def print_tile(tile: np.ndarray) -> None:
   output = []
-  for row in shape:
+  for row in tile:
     for cell in row:
       if cell:
         output.append(u'\u2588\u2588')
@@ -103,20 +103,20 @@ S = int8_array([
   [1, 1, 0]
 ])
 
-shapes = [O_1, O_2]
+all_tiles = [O_1, O_2]
 rotate_2 = [I_2, I_3, I_4, I_5, D_2, D_3, D_4, Z, S]
 rotate_4 = [L_2, L_3, T_2, T_3, C]
 
-for shape in rotate_2:
+for _tile in rotate_2:
   for i in range(2):
-    shape = np.rot90(shape)
-    shapes.append(shape)
+    _tile = np.rot90(_tile)
+    all_tiles.append(_tile)
 
-for shape in rotate_4:
+for _tile in rotate_4:
   for i in range(4):
-    shape = np.rot90(shape)
-    shapes.append(shape)
+    _tile = np.rot90(_tile)
+    all_tiles.append(_tile)
 
 if __name__ == '__main__':
-  for shape in shapes:
-    print_shape(shape)
+  for _tile in all_tiles:
+    print_tile(_tile)

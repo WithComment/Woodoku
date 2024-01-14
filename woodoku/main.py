@@ -1,7 +1,7 @@
 import random
 import pygame
 
-from Tiles import shapes
+from woodoku.tiles import shapes
 from util import draw_grid, gen_shape
 
 # Initialize Pygame
